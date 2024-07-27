@@ -19,9 +19,11 @@ RUN npm run build
 # Stage 2: Serve the application with Nginx
 FROM nginx:stable-alpine
 
-# Create necessary directories with appropriate permissions
-RUN mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/proxy_temp /var/cache/nginx/fastcgi_temp /var/cache/nginx/uwsgi_temp /var/cache/nginx/scgi_temp \
-    && chown -R nginx:nginx /var/cache/nginx
+# Create a directory for the PID file and give it permissions
+RUN mkdir -p /var/run/nginx && \
+    mkdir -p /var/cache/nginx && \
+    chmod -R 777 /var/run/nginx && \
+    chmod -R 777 /var/cache/nginx
 
 # Copy the built React application from the previous stage
 COPY --from=build /app/build /usr/share/nginx/html
@@ -31,6 +33,9 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Expose the port Nginx is running on
 EXPOSE 8080
+
+# Run as a non-root user
+USER 1001
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
