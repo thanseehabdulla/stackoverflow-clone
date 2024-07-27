@@ -1,0 +1,78 @@
+.question-list {
+    margin-top: 2rem;
+  }
+  
+  .question-list .bx--table-container {
+    margin-bottom: 2rem;
+    width: 100%; /* Ensure the table container takes the full width */
+  }
+  
+  .question-list .bx--data-table-container {
+    margin-bottom: 2rem;
+    width: 100%; /* Ensure the table takes the full width */
+  }
+  
+  .question-list .bx--data-table-header {
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .question-list .bx--data-table-body {
+    text-align: left;
+  }
+  
+  .introduction {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .introduction h2, .introduction h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .introduction p {
+    margin-bottom: 1rem;
+  }
+  
+  .introduction ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem; /* Add padding to list */
+  }
+  
+  .introduction ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem; /* Add padding to list */
+  }
+  
+  .introduction pre {
+    background: #282c34; /* Dark background for code blocks */
+    color: #ffffff; /* Light text for code blocks */
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto; /* Ensure code blocks are scrollable */
+    margin-bottom: 1rem;
+  }
+  
+  .introduction a {
+    color: #0f62fe; /* Link color */
+    text-decoration: none;
+  }
+  
+  .introduction a:hover {
+    text-decoration: underline;
+  }
+
+  
+  .cds--css-grid { 
+    display: flex !important;
+    width: 100%;
+  }
+
+  .cds--row {
+    width: 100%;
+  }
+
+  .cds--btn--primary {
+    color: white !important;
+  }

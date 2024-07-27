@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Carbon Stack Overflow Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simplified version of Stack Overflow built using the IBM Carbon Design System, React, and JavaScript. It demonstrates the use of Carbon components to create a responsive and accessible web application.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- **React**: A JavaScript library for building user interfaces.
+- **IBM Carbon Design System**: A comprehensive design system to ensure a consistent and unified user experience.
+- **JavaScript**: The programming language used to build the interactive features of the application.
+- **Docker**: Used to containerize the application for deployment.
+- **OpenShift**: A Kubernetes-based platform to deploy and manage containerized applications.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- List of questions with details such as title, author, date, votes, answers, and points.
+- Leaderboard to display top users based on their points.
+- Introduction to React and JavaScript.
+- Instructions for deploying the application on OpenShift.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm installed on your machine.
+- Docker installed on your machine.
+- OpenShift account and CLI installed.
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    git clone https://github.com/your-username/carbon-stackoverflow-clone.git
+    cd carbon-stackoverflow-clone
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Start the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Open your browser and navigate to `http://localhost:3000` to see the application in action.
 
-## Learn More
+### Building the Docker Image
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Build the Docker image:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    docker build -t my-react-app .
+    ```
 
-### Code Splitting
+### Deploying to OpenShift
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Log in to your OpenShift account using the CLI:
 
-### Analyzing the Bundle Size
+    ```bash
+    oc login
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Create a new project in OpenShift:
 
-### Making a Progressive Web App
+    ```bash
+    oc new-project my-react-app
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Deploy the Docker image to OpenShift:
 
-### Advanced Configuration
+    ```bash
+    oc new-app my-react-app
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Expose the service to create a route:
 
-### Deployment
+    ```bash
+    oc expose svc/my-react-app
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+5. Access your application via the route provided by OpenShift. You can get the route URL using:
 
-### `npm run build` fails to minify
+    ```bash
+    oc get routes
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Application Structure
+
+- **`src`**: Contains the source code of the application.
+  - **`components`**: Contains the React components.
+  - **`styles`**: Contains the CSS styles.
+- **`public`**: Contains the static assets.
+- **`Dockerfile`**: Used to build the Docker image for the application.
+
+## Application Components
+
+### `App.js`
+
+The main component that sets up the layout and routing for the application.
+
+### `QuestionList.js`
+
+Component that displays the list of questions and the leaderboard. It also includes an introduction to React and JavaScript along with deployment instructions.
+
+### `QuestionList.css`
+
+CSS file to style the `QuestionList` component and ensure a consistent design with the Carbon Design System.
+
+## Contribution
+
+Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
+
+## License
+
+This project is licensed under the MIT License.
+
+Directory
+
+my-react-app/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── QuestionList.js
+│   │   └── ...
+│   ├── styles/
+│   │   ├── QuestionList.css
+│   │   └── ...
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+├── .dockerignore
+├── Dockerfile
+├── nginx.conf
+├── package.json
+├── package-lock.json
+└── README.md
